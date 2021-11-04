@@ -1,5 +1,6 @@
 const chai = require("chai"); // 1
 const assert = chai.assert;
+const expect = chai.expect;
 
 //const assert = require("chai").assert;
 //const shouldBuyCar = require("../shouldBuyCar");
@@ -21,8 +22,8 @@ describe("#shouldBuyCar()", function () { // 3
     const car = {
       color: "pink",
     };
-    if (this.color === "pink");
-    return true;
+    //if (this.color === "pink");
+    //return true;
     const shouldBuy = shouldBuyCar(car);
     assert.isTrue(shouldBuy);
 
@@ -32,16 +33,20 @@ describe("#shouldBuyCar()", function () { // 3
     const car = {
       details: "",
     };
-    if (this.details === "");
-    return false;
+    //if (this.details === "");
+    //return false;
+    const shouldBuy = shouldBuyCar(car);
+    assert.isFalse(shouldBuy);
   });
 
   it("should return false when the car is a hatchback", function () {
     const car = {
       type: "hatchback",
     };
-    if (this.carType === "hatchback");
-    return false;
+    //if (this.type === "hatchback");
+    //return false;
+    const shouldBuy = shouldBuyCar(car);
+    assert.isFalse(shouldBuy);
   });
 
   it("should return false when the car is a hatchback and pink",
@@ -50,72 +55,88 @@ describe("#shouldBuyCar()", function () { // 3
         type: "hatchback",
         color: "pink",
       };
-      if (this.type === "hatchback" && this.color === "pink");
-      return false;
+      //if (this.type === "hatchback" && this.color === "pink");
+      //return false;
+      const shouldBuy = shouldBuyCar(car);
+      assert.isFalse(shouldBuy);
     });
 
   it("should return true when the car has 6 litres/100km and is under or equal to $5,000",
     function () {
       const car = {
-        litters: 6,
+        litresPer100km: 6,
         price: 5000,
       }
-      if (this.litters = 6 && this.price <= 5000);
-      return true;
+      //if (this.litresPer100km = 6 && this.price <= 5000);
+      //return true;
+      const shouldBuy = shouldBuyCar(car);
+      assert.isTrue(shouldBuy);
     });
 
   it("should return true when the car has 11 litres/100km and is under or equal to $5,000",
     function () {
       const car = {
-        litters: 11,
+        litresPer100km: 11,
         price: 5000,
       }
-      if (this.litters = 11 && this.price <= 5000);
-      return true;
+      //if (this.litresPer100km = 11 && this.price <= 5000);
+      //return true;
+      const shouldBuy = shouldBuyCar(car);
+      assert.isTrue(shouldBuy);
     });
 
   it("should return false when the car has 6 litres/100km and is over $5,000",
     function () {
       const car = {
-        litters: 11,
-        price: 5000,
+        litresPer100km: 6,
+        price: 5001,
       }
-      if (this.litters = 11 && this.price > 5000);
-      return false;
+      //if (this.litresPer100km = 6 && this.price > 5000);
+      //return false;
+      const shouldBuy = shouldBuyCar(car);
+      assert.isFalse(shouldBuy);
     });
   it("should return false when the car has 11 litres/100km and is over $5,000",
     function () {
       const car = {
-        litters: 11,
-        price: 5000,
+        litresPer100km: 11,
+        price: 5001,
       }
-      if (this.litters = 11 && this.price > 5000);
-      return false;
+      //if (this.litresPer100km = 11 && this.price > 5000);
+      // return false;
+      const shouldBuy = shouldBuyCar(car);
+      assert.isFalse(shouldBuy);
     });
 
   it("should return false when the car has 5 litres/100km and is under or equal to $5,000",
     function () {
       const car = {
-        litters: 5,
+        litresPer100km: 5,
         price: 5000,
       }
-      if (this.litters = 5 && this.price <= 5000);
-      return false;
+      //if (this.litresPer100km = 5 && this.price <= 5000);
+      // return false;
+      const shouldBuy = shouldBuyCar(car);
+      assert.isFalse(shouldBuy);
     });
   it("should return false when the car has 12 litres/100km and is under or equal to $5,000",
     function () {
       const car = {
-        litters: 12,
+        litresPer100km: 12,
         price: 5000,
       }
-      if (this.litters = 5 && this.price <= 5000);
-      return false;
+      //if (this.litresPer100km = 5 && this.price <= 5000);
+      //return false;
+      const shouldBuy = shouldBuyCar(car);
+      assert.isFalse(shouldBuy);
     });
 
   it("should return undefined when there is no car",
     function () {
-      const car = {}
+      const car = undefined;
 
-      return undefined;
+      //return undefined;
+      const shouldBuy = shouldBuyCar(car);
+      expect(shouldBuy).to.be.an('undefined');
     });
 });
