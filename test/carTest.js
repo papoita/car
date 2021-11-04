@@ -23,6 +23,8 @@ describe("#shouldBuyCar()", function () { // 3
     };
     if (this.color === "pink");
     return true;
+    const shouldBuy = shouldBuyCar(car);
+    assert.isTrue(shouldBuy);
 
   });
 
@@ -78,8 +80,42 @@ describe("#shouldBuyCar()", function () { // 3
         litters: 11,
         price: 5000,
       }
-      if (this.litters = 6 && this.price > 5000);
+      if (this.litters = 11 && this.price > 5000);
+      return false;
+    });
+  it("should return false when the car has 11 litres/100km and is over $5,000",
+    function () {
+      const car = {
+        litters: 11,
+        price: 5000,
+      }
+      if (this.litters = 11 && this.price > 5000);
       return false;
     });
 
+  it("should return false when the car has 5 litres/100km and is under or equal to $5,000",
+    function () {
+      const car = {
+        litters: 5,
+        price: 5000,
+      }
+      if (this.litters = 5 && this.price <= 5000);
+      return false;
+    });
+  it("should return false when the car has 12 litres/100km and is under or equal to $5,000",
+    function () {
+      const car = {
+        litters: 12,
+        price: 5000,
+      }
+      if (this.litters = 5 && this.price <= 5000);
+      return false;
+    });
+
+  it("should return undefined when there is no car",
+    function () {
+      const car = {}
+
+      return undefined;
+    });
 });
